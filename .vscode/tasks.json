@@ -1,0 +1,75 @@
+{
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "C/C++: g++ build active file",
+            "command": "/usr/bin/g++",
+            "args": [
+                "-g",
+                "${file}",
+                "-I/$HOME/.local/include",
+                "-std=c++17",
+                "-o",
+                "a.out"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "type": "shell",
+            "label": "C/C++: rm executable file",
+            "command": "rm",
+            "args": [
+                "${fileDirname}/${fileBasenameNoExtension}"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        },
+        {
+            "label": "focus at first terminal",
+            "command": "${command:workbench.action.terminal.focusAtIndex1}"
+        },
+        {
+            "label": "download test case",
+            "type": "process",
+            "command": "bash",
+            "args": [
+                "-c",
+                "test ${input:problemUrl} && rm -f test/*.in test/*.out && oj d ${input:problemUrl} || true",
+            ],
+            "problemMatcher": []
+        },
+        {
+            "type": "shell",
+            "label": "do oj test",
+            "command": "oj",
+            "args": [
+                "t",
+                // "-c python3 ${file}"
+            ],
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "problemMatcher": [],
+            "dependsOn": ["C/C++: g++ build active file", "download test case"]
+        }
+    ],
+    "inputs": [
+        {
+            "id": "problemUrl",
+            "type": "promptString",
+            "description": "URL of Problem"
+        }
+    ],
+    "version": "2.0.0"
+}
