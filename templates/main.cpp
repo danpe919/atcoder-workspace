@@ -1,5 +1,4 @@
 // clang-format off
-// #include <atcoder/all>
 #include <bits/stdc++.h>
 #define rep(i, n) for (int i = 0; i < (n); ++i)
 #define rep2(i, st, n) for (int i = st; i < (n); ++i)
@@ -21,33 +20,19 @@ using namespace std;
 using ll = int64_t;
 using P = pair<ll, ll>;
 template <class T> using V = vector<T>;
+template <class T> using pri_queue = priority_queue<T, V<T>, greater<T>>;
 constexpr int IINF = 1 << 30;
 constexpr ll LINF = 1LL << 62;
 constexpr ll mod = 1e9 + 7;
 template <class T> T max(const V<T>& v) { return *max_element(ALL(v)); }
 template <class T> T min(const V<T>& v) { return *min_element(ALL(v)); }
 template <class T> ll sum(const V<T>& v) { return accumulate(ALL(v), 0LL); }
+template <class T> void sort(const V<T>& v) { sort(v.begin(), v.end()); }
+template <class T> void reverse(const V<T>& v) { reverse(v.begin(), v.end()); }
 ll intpow(ll i, int n) { ll ret = 1; rep(j, n) ret *= i; return ret; }
-template <typename T>
-istream& operator>>(istream& i, V<T>& v) {
+template <typename T> istream& operator>>(istream& i, V<T>& v) {
   rep(j, LEN(v)) i >> v[j];
   return i;
-}
-istream& operator>>(istream& i, P& p) {
-  i >> p.first >> p.second; return i;
-}
-template <typename T> ostream& operator<<(ostream& o, V<T>& v) {
-  rep(i, LEN(v)) o << v[i] << ", ";
-  return o;
-}
-ostream& operator<<(ostream& o, P p) {
-  o << p.first << " " << p.second; return o;
-}
-template <typename T>
-V<V<T>> vec2(int n, int m, T v = 0) { V<V<T>> ret(n, V<T>(m, v)); return ret; }
-template <typename T>
-V<V<V<T>>> vec3(int n, int m, int l, T v = 0) {
-  V<V<V<T>>> ret(n, V<V<T>>(m, V<T>(l, v))); return ret;
 }
 // clang-format on
 
