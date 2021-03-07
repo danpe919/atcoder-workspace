@@ -8,6 +8,9 @@ read -p "Do you want to overwrite submit codes? (y/N): " yn; case "$yn" in [yY]*
 cd $(dirname $0)
 cd ..
 
-for f in ${files[@]}; do
-    cp templates/main.cpp $f.cpp
+template_file=templates/main.cpp
+echo "creating files from $template_file..."
+for file in ${files[@]}; do
+    cp $template_file $file.cpp
+    echo "created $file.cpp"
 done
