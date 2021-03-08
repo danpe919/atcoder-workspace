@@ -99,7 +99,8 @@
     "typeindex": "cpp",
     "typeinfo": "cpp",
     "variant": "cpp",
-    "version": "cpp"
+    "version": "cpp",
+    "modint": "cpp"
 },
 "python.pythonPath": "/bin/python3",
 "C_Cpp.errorSquiggles": "Disabled"

@@ -10,12 +10,13 @@ const ll mod = 1e9 + 7;
  * @brief nCk mod Mを求めるクラス
  * @note 前処理 O(n), クエリ O(1)
  */
-class Chooser {
+class Combination {
   V<ll> fac, finv, inv;
   ll MOD;
 
  public:
-  Chooser(int n_, ll mod = 1e9 + 7) : fac(n_), finv(n_), inv(n_), MOD(mod) {
+  Combination(int n_, ll mod = 1e9 + 7)
+      : fac(n_ + 1), finv(n_ + 1), inv(n_ + 1), MOD(mod) {
     fac[0] = fac[1] = 1;
     finv[0] = finv[1] = 1;
     inv[1] = 1;
@@ -25,7 +26,7 @@ class Chooser {
       finv[i] = finv[i - 1] * inv[i] % MOD;
     }
   }
-  ll choose(int n, int k) {
+  ll operator()(int n, int k) {
     if (n < k) return 0;
     if (n < 0 || k < 0) return 0;
     return fac[n] * (finv[k] * finv[n - k] % MOD) % MOD;
@@ -36,14 +37,14 @@ class Chooser {
  * @brief nCkを求めるクラス
  * @note 前処理 O(n^2), クエリ O(1)
  */
-class Chooser {
+class Combination {
  public:
   int n;
   vector<vector<ll>> comb;
-  Chooser(int n_) : n(n_ + 1) {
+  Combination(int n_) : n(n_ + 1) {
     init();
   }
-  ll choose(int n, int k) {
+  ll operator()(int n, int k) {
     return comb[n][k];
   }
 
