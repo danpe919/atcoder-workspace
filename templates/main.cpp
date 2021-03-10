@@ -23,17 +23,19 @@ template <class T> using V = vector<T>;
 template <class T> using pri_queue = priority_queue<T, V<T>, greater<T>>;
 constexpr int IINF = 1 << 30;
 constexpr ll LINF = 1LL << 62;
-constexpr ll mod = 1e9 + 7;
+constexpr ll MOD = 1e9 + 7;
 template <class T> T max(const V<T>& v) { return *max_element(ALL(v)); }
 template <class T> T min(const V<T>& v) { return *min_element(ALL(v)); }
 template <class T> ll sum(const V<T>& v) { return accumulate(ALL(v), 0LL); }
-template <class T> void sort(const V<T>& v) { sort(v.begin(), v.end()); }
-template <class T> void reverse(const V<T>& v) { reverse(v.begin(), v.end()); }
-ll intpow(ll i, int n) { ll ret = 1; rep(j, n) ret *= i; return ret; }
+template <class T> void sort(V<T>& v) { sort(v.begin(), v.end()); }
+template <class T> void reverse(V<T>& v) { reverse(v.begin(), v.end()); }
 template <typename T> istream& operator>>(istream& i, V<T>& v) {
   rep(j, LEN(v)) i >> v[j];
   return i;
 }
+#include <atcoder/modint>
+using namespace atcoder;
+using mint = atcoder::modint1000000007;
 // clang-format on
 
 int main() {
