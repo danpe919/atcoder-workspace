@@ -1,8 +1,12 @@
 // clang-format off
 #include <bits/stdc++.h>
-#define rep(i, n) for (int i = 0; i < (n); ++i)
-#define rep2(i, st, n) for (int i = st; i < (n); ++i)
-#define rrep(i, n) for (int i = (n - 1); i >= 0; --i)
+#define overload3(a, b, c, d, ...) d
+#define rep2(i, n) for (int i = 0; i < (int)(n); ++i)
+#define rep3(i, st, n) for (int i = st; i < (int)(n); ++i)
+#define rep(...) overload3(__VA_ARGS__, rep3, rep2, rep1)(__VA_ARGS__)
+#define rrep2(i, n) for (int i = (int)(n - 1); i >= 0; --i)
+#define rrep3(i, n, st) for (int i = (int)(n - 1); i >= (st); --i)
+#define rrep(...) overload3(__VA_ARGS__, rrep3, rrep2, rep1)(__VA_ARGS__)
 #define RREP(i, ed, n) for (int i = (n - 1); i >= (ed); --i)
 #define BIT(n, k) ((n >> k) & 1)
 #define LEN(s) (int)s.size()
@@ -33,9 +37,9 @@ template <typename T> istream& operator>>(istream& i, V<T>& v) {
   rep(j, LEN(v)) i >> v[j];
   return i;
 }
-#include <atcoder/modint>
-using namespace atcoder;
-using mint = atcoder::modint1000000007;
+// #include <atcoder/modint>
+// using namespace atcoder;
+// using mint = atcoder::modint1000000007;
 // clang-format on
 
 int main() {
