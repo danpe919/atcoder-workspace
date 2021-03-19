@@ -37,6 +37,11 @@ template <typename T> istream& operator>>(istream& i, V<T>& v) {
   rep(j, LEN(v)) i >> v[j];
   return i;
 }
+template<typename T, typename ...Args>
+auto make_vector(T x, int arg, Args ...args) {
+  if constexpr(sizeof...(args) == 0) return vector<T>(arg, x);
+  else return vector(arg, make_vector<T>(x, args...));
+}
 // #include <atcoder/modint>
 // using namespace atcoder;
 // using mint = atcoder::modint1000000007;
